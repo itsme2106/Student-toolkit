@@ -18,6 +18,7 @@ import { PomodoroTimer } from './pages/tools/PomodoroTimer';
 import { WordCounter } from './pages/tools/WordCounter';
 import { QRGenerator } from './pages/tools/QRGenerator';
 import { PDFTools } from './pages/tools/PDFTools';
+import { PptToPdf } from './pages/tools/PptToPdf';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="tools/word-counter" element={<WordCounter />} />
             <Route path="tools/qr-generator" element={<QRGenerator />} />
             <Route path="tools/pdf-tools" element={<PDFTools />} />
+            <Route path="tools/ppt-to-pdf" element={<PptToPdf />} />
             
             {/* 404 Fallback */}
             <Route path="*" element={

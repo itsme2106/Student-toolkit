@@ -65,7 +65,7 @@ export const PDFTools = () => {
   // Merge Handlers
   const handleMergeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    const files = Array.from(e.target.files).filter(f => f.type === 'application/pdf');
+    const files = Array.from(e.target.files).filter((f: File) => f.type === 'application/pdf');
     if (files.length === 0) {
       setError("Please select valid PDF files.");
       return;

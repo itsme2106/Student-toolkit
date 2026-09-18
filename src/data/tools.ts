@@ -1,4 +1,4 @@
-import { Calculator, Calendar, FileText, Percent, CheckCircle, GraduationCap, Timer, Hash, QrCode, TrendingUp, AlertTriangle } from 'lucide-react';
+import { Calculator, Calendar, FileText, Percent, CheckCircle, GraduationCap, Timer, Hash, QrCode, TrendingUp, AlertTriangle, Presentation } from 'lucide-react';
 
 export type Category = 'Marks & Grades' | 'Attendance' | 'Study' | 'Everyday Tools';
 
@@ -102,6 +102,15 @@ export const tools: Tool[] = [
     category: 'Everyday Tools',
     icon: FileText,
     color: 'bg-comic-yellow'
+  },
+  {
+    id: 'ppt-to-pdf',
+    name: 'PPT to PDF',
+    slug: '/tools/ppt-to-pdf',
+    description: 'Convert PowerPoint presentations (.pptx) to PDF with custom slide layouts & note sheets.',
+    category: 'Everyday Tools',
+    icon: Presentation,
+    color: 'bg-comic-red'
   },
   {
     id: 'qr-generator',
