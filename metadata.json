@@ -1,0 +1,6 @@
+{
+  "name": "Student Toolkit",
+  "description": "Smart, simple tools for marks, grades, attendance, studying and everyday student life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

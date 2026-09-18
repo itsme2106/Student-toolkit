@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", sans-serif;
+  --font-display: "Bangers", cursive;
+  
+  --color-comic-yellow: #FFD500;
+  --color-comic-blue: #00A6EA;
+  --color-comic-red: #FF3366;
+  --color-comic-green: #00D084;
+  --color-comic-purple: #9D00FF;
+  --color-comic-dark: #1E1E24;
+  --color-comic-light: #F8F9FA;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f4f6f8;
+  /* Subtle comic dot pattern background */
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--color-comic-dark);
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+/* Comic Book Card Style */
+.comic-card {
+  background: white;
+  border: 3px solid var(--color-comic-dark);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0px var(--color-comic-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+.comic-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--color-comic-dark);
+}
+
+.comic-card-sm {
+  box-shadow: 4px 4px 0px var(--color-comic-dark);
+}
+.comic-card-sm:hover {
+  box-shadow: 6px 6px 0px var(--color-comic-dark);
+}
+
+/* Comic Button */
+.comic-btn {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 3px solid var(--color-comic-dark);
+  border-radius: 9999px;
+  box-shadow: 4px 4px 0px var(--color-comic-dark);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.comic-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-comic-dark);
+}
+
+.comic-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--color-comic-dark);
+}
+
+.comic-btn-primary {
+  background-color: var(--color-comic-yellow);
+  color: var(--color-comic-dark);
+}
+
+.comic-btn-secondary {
+  background-color: white;
+  color: var(--color-comic-dark);
+}
+
+.comic-btn-danger {
+  background-color: var(--color-comic-red);
+  color: white;
+}
+
+.comic-input {
+  border: 2px solid var(--color-comic-dark);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.comic-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0px var(--color-comic-yellow);
+  border-color: var(--color-comic-dark);
+}
