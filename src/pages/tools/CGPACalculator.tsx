@@ -120,11 +120,11 @@ export const CGPACalculator = () => {
           <div className={`comic-card p-6 text-center ${cgpa !== null ? 'bg-comic-blue text-white' : 'bg-gray-50 text-gray-400 border-gray-300'}`}>
             <h3 className="font-display text-2xl mb-2 text-inherit drop-shadow-none">Your CGPA</h3>
             {cgpa !== null ? (
-              <div className="font-display text-6xl drop-shadow-[3px_3px_0px_#1E1E24]">
+              <div className="font-display text-6xl drop-shadow-[3px_3px_0px_#1E1E24] text-[#dfb50f] bg-[#fff9f9]">
                 {cgpa.toFixed(2)}
               </div>
             ) : (
-              <div className="text-xl font-bold py-8">Fill the details to see result</div>
+              <div className="text-xl font-bold py-8 text-[#dfb50f] bg-[#fff9f9]">Fill the details to see result</div>
             )}
           </div>
         </div>
