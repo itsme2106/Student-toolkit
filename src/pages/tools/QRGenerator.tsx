@@ -3,7 +3,7 @@ import { ToolLayout } from '../../components/ToolLayout';
 import { QRCodeSVG } from 'qrcode.react';
 
 export const QRGenerator = () => {
-  const [text, setText] = useState('https://studenttoolkit.com');
+  const [text, setText] = useState('https://studentstool.online');
 
   return (
     <ToolLayout 

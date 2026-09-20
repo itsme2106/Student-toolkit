@@ -30,7 +30,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
 
   const pageTitle = tool.seoTitle || `${tool.name} | Student Toolkit`;
   const pageDescription = tool.seoDescription || tool.description;
-  const canonicalUrl = `https://studenttoolkit.com${tool.slug}`;
+  const canonicalUrl = `https://studentstool.online${tool.slug}`;
 
   // Structured Data (Schema.org)
   const webAppSchema = {
@@ -56,13 +56,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://studenttoolkit.com/"
+        "item": "https://studentstool.online/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": tool.category,
-        "item": `https://studenttoolkit.com/#${tool.category.split(' ')[0].toLowerCase()}`
+        "item": `https://studentstool.online/#${tool.category.split(' ')[0].toLowerCase()}`
       },
       {
         "@type": "ListItem",
@@ -100,13 +100,13 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content="https://studenttoolkit.com/favicon.svg" />
+        <meta property="og:image" content="https://studentstool.online/favicon.svg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content="https://studenttoolkit.com/favicon.svg" />
+        <meta name="twitter:image" content="https://studentstool.online/favicon.svg" />
 
         {/* Structured Data */}
         <script type="application/ld+json">

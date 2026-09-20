@@ -24,7 +24,7 @@ export const Home = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Student Toolkit",
-    "url": "https://studenttoolkit.com/",
+    "url": "https://studentstool.online/",
     "description": "Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities."
   };
 
@@ -33,7 +33,7 @@ export const Home = () => {
       <Helmet>
         <title>Student Toolkit | Academic Calculators & Everyday Student Tools</title>
         <meta name="description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
-        <link rel="canonical" href="https://studenttoolkit.com/" />
+        <link rel="canonical" href="https://studentstool.online/" />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph */}
@@ -41,14 +41,14 @@ export const Home = () => {
         <meta property="og:site_name" content="Student Toolkit" />
         <meta property="og:title" content="Student Toolkit | Academic Calculators & Everyday Student Tools" />
         <meta property="og:description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
-        <meta property="og:url" content="https://studenttoolkit.com/" />
-        <meta property="og:image" content="https://studenttoolkit.com/favicon.svg" />
+        <meta property="og:url" content="https://studentstool.online/" />
+        <meta property="og:image" content="https://studentstool.online/favicon.svg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Student Toolkit | Academic Calculators & Everyday Student Tools" />
         <meta name="twitter:description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
-        <meta name="twitter:image" content="https://studenttoolkit.com/favicon.svg" />
+        <meta name="twitter:image" content="https://studentstool.online/favicon.svg" />
 
         {/* Structured Data */}
         <script type="application/ld+json">
