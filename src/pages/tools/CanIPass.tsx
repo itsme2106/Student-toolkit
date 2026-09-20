@@ -203,13 +203,13 @@ export const CanIPass = () => {
       faq={
         <div className="space-y-4">
           <div>
-            <h4 className="font-display text-xl mb-1">What is the difference between Points and Weighted?</h4>
+            <h3 className="font-display text-xl mb-1">What is the difference between Points and Weighted?</h3>
             <p className="font-bold text-gray-600">
               Use <strong>Points / Marks</strong> if your professor grades on raw scores (e.g., 30/50 on midterms, final out of 50). Use <strong>Weighted %</strong> if your syllabus specifies percentages like <em>"Midterm 60%, Final 40%"</em>.
             </p>
           </div>
           <div>
-            <h4 className="font-display text-xl mb-1">What if my school requires a separate final exam cutoff?</h4>
+            <h3 className="font-display text-xl mb-1">What if my school requires a separate final exam cutoff?</h3>
             <p className="font-bold text-gray-600">
               Some universities require both an overall pass and an independent minimum (like 35% on the final exam itself). Be sure to check your course syllabus for any separate sub-minimums!
             </p>

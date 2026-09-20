@@ -46,7 +46,7 @@ export const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-10 h-10 bg-comic-yellow border-[3px] border-comic-dark rounded-xl flex items-center justify-center transform group-hover:-rotate-12 transition-transform">
-                <Rocket className="text-comic-dark w-6 h-6" />
+                <Rocket className="text-comic-dark w-6 h-6" aria-hidden="true" />
               </div>
               <span className="font-display text-2xl text-comic-dark tracking-wide">
                 STUDENT TOOLKIT
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 className="p-2 border-[3px] border-comic-dark rounded-full hover:bg-comic-yellow transition-colors"
                 aria-label="Search tools"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-5 h-5" aria-hidden="true" />
               </button>
               
               {showSearch && (
@@ -107,14 +107,16 @@ export const Navbar = () => {
              <button 
                 onClick={() => setShowSearch(!showSearch)}
                 className="p-2 border-[3px] border-comic-dark rounded-full hover:bg-comic-yellow transition-colors"
+                aria-label="Search tools"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-5 h-5" aria-hidden="true" />
               </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 border-[3px] border-comic-dark rounded-md bg-white hover:bg-gray-100"
+              aria-label="Toggle navigation menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
         </div>

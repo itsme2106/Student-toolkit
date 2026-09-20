@@ -748,13 +748,13 @@ export const PptToPdf = () => {
       faq={
         <div className="space-y-4">
           <div>
-            <h4 className="font-display text-xl mb-1">What PowerPoint formats are supported?</h4>
+            <h3 className="font-display text-xl mb-1">What PowerPoint formats are supported?</h3>
             <p className="font-bold text-gray-600">
               Modern <code>.pptx</code> files created in Microsoft PowerPoint, Google Slides (File &gt; Download &gt; Microsoft PowerPoint), Apple Keynote, and LibreOffice are fully supported.
             </p>
           </div>
           <div>
-            <h4 className="font-display text-xl mb-1">Can I print lecture handouts with note lines?</h4>
+            <h3 className="font-display text-xl mb-1">Can I print lecture handouts with note lines?</h3>
             <p className="font-bold text-gray-600">
               Yes! Select the <strong>"3 Slides + Notes Lines"</strong> layout to print traditional university-style handout pages with ruled notebook lines for your handwriting.
             </p>

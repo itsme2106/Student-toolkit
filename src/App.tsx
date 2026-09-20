@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import ScrollToTop from './components/ScrollToTop';
@@ -48,9 +48,13 @@ export default function App() {
             {/* 404 Fallback */}
             <Route path="*" element={
               <div className="text-center py-20">
+                <Helmet>
+                  <title>404 - Page Not Found | Student Toolkit</title>
+                  <meta name="robots" content="noindex, follow" />
+                </Helmet>
                 <h1 className="font-display text-6xl text-comic-dark mb-4">404 - Not Found</h1>
                 <p className="font-bold text-xl">The tool you are looking for doesn't exist (yet).</p>
-                <a href="/" className="inline-block mt-8 comic-btn comic-btn-primary px-6 py-3">Go Home</a>
+                <Link to="/" className="inline-block mt-8 comic-btn comic-btn-primary px-6 py-3">Go Home</Link>
               </div>
             } />
           </Route>

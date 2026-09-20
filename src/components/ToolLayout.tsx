@@ -24,30 +24,114 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
   
   if (!tool) return <div>Tool not found</div>;
 
-  const relatedTools = tools
-    .filter(t => t.category === tool.category && t.id !== tool.id)
-    .slice(0, 3);
+  const relatedTools = (tool.relatedToolIds && tool.relatedToolIds.length > 0)
+    ? tool.relatedToolIds.map(id => tools.find(t => t.id === id)).filter((t): t is Tool => Boolean(t))
+    : tools.filter(t => t.category === tool.category && t.id !== tool.id).slice(0, 3);
+
+  const pageTitle = tool.seoTitle || `${tool.name} | Student Toolkit`;
+  const pageDescription = tool.seoDescription || tool.description;
+  const canonicalUrl = `https://studenttoolkit.com${tool.slug}`;
+
+  // Structured Data (Schema.org)
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": tool.name,
+    "url": canonicalUrl,
+    "description": pageDescription,
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://studenttoolkit.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": tool.category,
+        "item": `https://studenttoolkit.com/#${tool.category.split(' ')[0].toLowerCase()}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": tool.name,
+        "item": canonicalUrl
+      }
+    ]
+  };
+
+  const faqSchema = (tool.faqItems && tool.faqItems.length > 0) ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": tool.faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Helmet>
-        <title>{tool.name} | Student Toolkit</title>
-        <meta name="description" content={tool.description} />
-        <link rel="canonical" href={`https://studenttoolkit.com${location.pathname}`} />
-        <meta property="og:title" content={`${tool.name} - Student Toolkit`} />
-        <meta property="og:description" content={tool.description} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Student Toolkit" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content="https://studenttoolkit.com/favicon.svg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content="https://studenttoolkit.com/favicon.svg" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(webAppSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+        {faqSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        )}
       </Helmet>
 
       {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 font-bold text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-bold text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
         <Link to="/" className="hover:text-comic-blue flex items-center gap-1">
-          <HomeIcon className="w-4 h-4" /> Home
+          <HomeIcon className="w-4 h-4" aria-hidden="true" /> Home
         </Link>
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-4 h-4" aria-hidden="true" />
         <Link to={`/#${tool.category.split(' ')[0].toLowerCase()}`} className="hover:text-comic-blue">
           {tool.category}
         </Link>
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-4 h-4" aria-hidden="true" />
         <span className="text-comic-dark">{tool.name}</span>
       </nav>
 
@@ -55,7 +139,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       <div className="mb-8">
         <div className="flex items-center gap-4 mb-4">
           <div className={`w-16 h-16 rounded-2xl ${tool.color} border-[3px] border-comic-dark flex items-center justify-center shadow-[4px_4px_0px_#1E1E24]`}>
-            <tool.icon className="w-8 h-8 text-comic-dark" />
+            <tool.icon className="w-8 h-8 text-comic-dark" aria-hidden="true" />
           </div>
           <h1 className="font-display text-4xl md:text-5xl text-comic-dark m-0">
             {tool.name}
@@ -110,7 +194,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
               <Link key={rt.id} to={rt.slug} className="block group">
                 <div className="bg-white border-[3px] border-comic-dark rounded-xl p-4 shadow-[4px_4px_0px_#1E1E24] group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-[6px_6px_0px_#1E1E24] transition-all flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-lg ${rt.color} border-2 border-comic-dark flex items-center justify-center`}>
-                    <rt.icon className="w-5 h-5 text-comic-dark" />
+                    <rt.icon className="w-5 h-5 text-comic-dark" aria-hidden="true" />
                   </div>
                   <span className="font-display text-xl">{rt.name}</span>
                 </div>

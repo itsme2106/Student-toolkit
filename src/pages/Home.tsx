@@ -20,18 +20,47 @@ export const Home = () => {
     }
   }, [location]);
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Student Toolkit",
+    "url": "https://studenttoolkit.com/",
+    "description": "Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities."
+  };
+
   return (
     <>
       <Helmet>
-        <title>Student Toolkit | Smart Tools for Students</title>
-        <meta name="description" content="Smart, simple tools for marks, grades, attendance, studying and everyday student life. Your academic adventure starts here." />
+        <title>Student Toolkit | Academic Calculators & Everyday Student Tools</title>
+        <meta name="description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
+        <link rel="canonical" href="https://studenttoolkit.com/" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Student Toolkit" />
+        <meta property="og:title" content="Student Toolkit | Academic Calculators & Everyday Student Tools" />
+        <meta property="og:description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
+        <meta property="og:url" content="https://studenttoolkit.com/" />
+        <meta property="og:image" content="https://studenttoolkit.com/favicon.svg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Student Toolkit | Academic Calculators & Everyday Student Tools" />
+        <meta name="twitter:description" content="Free academic survival tools for students: GPA & CGPA calculators, attendance planners, pass calculators, Pomodoro timer, and PDF utilities." />
+        <meta name="twitter:image" content="https://studenttoolkit.com/favicon.svg" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-comic-light py-20 border-b-[3px] border-comic-dark">
         {/* Floating background elements for comic feel */}
-        <div className="absolute top-10 left-10 text-comic-yellow animate-pulse"><Star size={40} fill="currentColor" /></div>
-        <div className="absolute bottom-20 right-10 text-comic-red animate-bounce" style={{animationDuration: '3s'}}><Star size={30} fill="currentColor" /></div>
+        <div className="absolute top-10 left-10 text-comic-yellow animate-pulse" aria-hidden="true"><Star size={40} fill="currentColor" /></div>
+        <div className="absolute bottom-20 right-10 text-comic-red animate-bounce" style={{animationDuration: '3s'}} aria-hidden="true"><Star size={30} fill="currentColor" /></div>
         
         <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
           <motion.div
@@ -56,7 +85,7 @@ export const Home = () => {
                 to="/#tools-grid" 
                 className="comic-btn comic-btn-primary px-8 py-4 text-xl flex items-center gap-2"
               >
-                Explore Tools <ArrowRight className="w-6 h-6" />
+                Explore Tools <ArrowRight className="w-6 h-6" aria-hidden="true" />
               </Link>
               <Link 
                 to="/tools/can-i-pass" 
@@ -110,14 +139,14 @@ const ToolCard: React.FC<{ tool: Tool }> = ({ tool }) => {
         <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full ${tool.color} opacity-20 group-hover:scale-150 transition-transform duration-500`}></div>
         
         <div className={`w-14 h-14 rounded-2xl ${tool.color} border-[3px] border-comic-dark flex items-center justify-center mb-4 shadow-[4px_4px_0px_#1E1E24] z-10`}>
-          <Icon className="w-7 h-7 text-comic-dark" />
+          <Icon className="w-7 h-7 text-comic-dark" aria-hidden="true" />
         </div>
         
         <h3 className="font-display text-2xl mb-2 z-10">{tool.name}</h3>
         <p className="font-bold text-gray-600 flex-grow z-10">{tool.description}</p>
         
         <div className="mt-4 flex items-center font-bold text-comic-blue group-hover:text-comic-red transition-colors z-10">
-          Open Tool <ArrowRight className="w-5 h-5 ml-1" />
+          Open Tool <ArrowRight className="w-5 h-5 ml-1" aria-hidden="true" />
         </div>
       </motion.div>
     </Link>
