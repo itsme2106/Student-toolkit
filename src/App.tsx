@@ -20,6 +20,7 @@ import { QRGenerator } from './pages/tools/QRGenerator';
 import { PDFTools } from './pages/tools/PDFTools';
 import { PptToPdf } from './pages/tools/PptToPdf';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfUse } from './pages/TermsOfUse';
 
 export default function App() {
   return (
@@ -49,6 +50,10 @@ export default function App() {
             {/* Privacy Policy */}
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="privacy-policy/" element={<PrivacyPolicy />} />
+
+            {/* Terms of Use */}
+            <Route path="terms-of-use" element={<TermsOfUse />} />
+            <Route path="terms-of-use/" element={<TermsOfUse />} />
             
             {/* 404 Fallback */}
             <Route path="*" element={

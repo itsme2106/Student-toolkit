@@ -14,6 +14,10 @@ export const Layout = () => {
           <p className="font-bold text-gray-600 mb-2">Student Toolkit</p>
           <p className="text-sm text-gray-500 font-bold mb-3">Your academic survival adventure.</p>
           <div className="flex justify-center items-center gap-4 text-sm font-bold text-gray-600">
+            <Link to="/terms-of-use/" className="hover:text-comic-blue transition-colors">
+              Terms of Use
+            </Link>
+            <span>•</span>
             <Link to="/privacy-policy/" className="hover:text-comic-blue transition-colors">
               Privacy Policy
             </Link>
